@@ -37,6 +37,7 @@ def bundle_install_impl(ctx):
   exclude = []
   for gem, globs in ctx.attr.excludes.items():
     expanded = ["lib/ruby/*/gems/%s-*/%s" % (gem, glob) for glob in globs]
+    print(expanded)
     exclude.extend(expanded)
 
   ctx.template(
